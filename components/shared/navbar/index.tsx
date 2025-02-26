@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 
 const Navbar = () => {
   return (
-    <nav className="w-full bg-[#FFC31A] font-roboto-condensed">
+    <nav className="w-full bg-[#FFC31A] font-roboto-condensed text-lg">
       <div className="container mx-auto p-4 flex justify-between items-center">
         
         <div className="flex items-center">

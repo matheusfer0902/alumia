@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google"; // Certifique-se de que a fonte está configurada corretamente
-import Navbar from "@/components/shared/navbar/index"; // Importando a Navbar
+import { Roboto_Condensed, Roboto } from "next/font/google"; 
+import Navbar from "@/components/shared/navbar/index"; 
 import "./globals.css";
 
 const robotoCondensed = Roboto_Condensed({
   variable: "--font-roboto-condensed",
   subsets: ["latin"],
+  weight: ["400", "700"], 
+});
+
+const roboto = Roboto({
+  variable: "--font-roboto",
+  subsets: ["latin"],
+  weight: ["400", "700"], 
 });
 
 export const metadata: Metadata = {
@@ -20,11 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${robotoCondensed.variable} antialiased`}>
-        <Navbar /> 
-        <div className="container mx-auto bg-[#F5F5F5]">
-          {children} 
-        </div>
+      <body className={`${roboto.variable} font-sans antialiased bg-[#F5F5F5]`}>
+        <Navbar />
+        <div className="container mx-auto">{children}</div>
       </body>
     </html>
   );

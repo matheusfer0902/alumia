@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MainPost() {
     return (
-        <div className="mt-16 cursor-pointer bg-[#F5F5F5]">
+        <div className="mt-16 cursor-pointer container mx-auto">
             <Image
                 src="/MainPost.svg"
                 alt="Noticia principal"
