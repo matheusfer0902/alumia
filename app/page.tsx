@@ -1,11 +1,9 @@
 import Home from "@/app/home/index"
-import Navbar from "@/components/shared/navbar";
-
 
 export default function Page() {
   return (
     <>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <Home></Home>
       </div>
     </>

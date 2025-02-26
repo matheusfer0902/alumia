@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${robotoCondensed.variable} antialiased`}>
         <Navbar /> 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto bg-[#F5F5F5]">
           {children} 
         </div>
       </body>
