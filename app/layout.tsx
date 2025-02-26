@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google"; 
+import { Roboto_Condensed } from "next/font/google"; // Certifique-se de que a fonte está configurada corretamente
+import Navbar from "@/components/shared/navbar/index"; // Importando a Navbar
 import "./globals.css";
 
 const robotoCondensed = Roboto_Condensed({
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${robotoCondensed.variable} antialiased`}>
-        {children}
+        <Navbar /> 
+        <div className="container mx-auto px-4">
+          {children} 
+        </div>
       </body>
     </html>
   );
