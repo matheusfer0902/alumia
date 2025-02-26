@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MainPost() {
     return (
-        <div className="mt-16 cursor-pointer">
+        <div className="mt-16 cursor-pointer bg-[#F5F5F5]">
             <Image
                 src="/MainPost.svg"
                 alt="Noticia principal"
@@ -12,4 +12,4 @@ export default function MainPost() {
             />
         </div>
     );
-  }
+}
