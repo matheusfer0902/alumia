@@ -9,13 +9,13 @@ const faqItems = [
       id: 2,
       question: "Como posso um fato ou notícia para vocês checarem?",
       answer:
-        "Habitant morbi tristique senectus et netus et malesuada. Informação verificada: falsa. Quisque lobortis urna sed orci vehicula, vel gravida lorem tempus. <span class='bg-[#FFC31A] font-bold px-1'>Miguezinho</span> para o texto parecer diferente.",
+        "Habitant morbi tristique senectus et netus et malesuada. Informação verificada: falsa. Quisque lobortis urna sed orci vehicula, vel gravida lorem tempus. <span class='bg-[#FFC31A] font-bold'>Miguezinho</span> para o texto parecer diferente.",
     },
     {
       id: 3,
       question: "Qual é a equipe que forma o projeto?",
       answer:
-        "Informazione <span class='bg-[#FFC31A] font-bold px-1'>verificadis falsificaedus</span>. Quisque lobortis urna sed orci vehicula, vel gravida lorem tempus.",
+        "Informazione <span class='bg-[#FFC31A] font-bold'>verificadis falsificaedus</span>. Quisque lobortis urna sed orci vehicula, vel gravida lorem tempus.",
     },
     {
       id: 4,

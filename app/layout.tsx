@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed, Roboto } from "next/font/google"; 
 import Navbar from "@/components/shared/navbar/index"; 
+import Footer from "@/components/shared/footer";
 import "./globals.css";
 
 const robotoCondensed = Roboto_Condensed({
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${roboto.variable} font-sans antialiased bg-[#F5F5F5]`}>
         <Navbar />
         <div className="container mx-auto">{children}</div>
+        <Footer/>
       </body>
     </html>
   );
