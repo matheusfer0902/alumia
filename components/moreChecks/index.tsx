@@ -52,11 +52,11 @@ export default function MoreChecks() {
                   className="w-full h-40 object-cover"
                 />
               </div>
-              <span className="bg-[#FFC31A] text-[#050505] text-sm font-bold my-4">
+              <span className="bg-[#FFC31A] text-[#050505] text-lg font-bold my-4">
                 {item.tag}
               </span>
               <div className="mt-2">
-                <h3 className="text-sm font-medium cursor-pointer underline">
+                <h3 className="text-lg font-medium cursor-pointer underline">
                   {item.title}
                 </h3>
               </div>

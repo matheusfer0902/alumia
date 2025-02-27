@@ -35,8 +35,8 @@ export default function InstitucionalSec() {
                 />
               </div>
               <div className="mt-4">
-                <h3 className="text-lg font-bold underline">{item.title}</h3>
-                <p className="text-sm mt-2 text-[#050505]">{item.description}</p>
+                <h3 className="text-2xl font-bold underline">{item.title}</h3>
+                <p className="text-lg mt-2 text-[#050505]">{item.description}</p>
                 <a href="#" className="text-sm font-bold text-[#050505] bg-[#FFC31A] inline-block mt-2">
                   Saiba mais
                 </a>
