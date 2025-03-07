@@ -1,4 +1,4 @@
-import { FaTwitter, FaFacebookF, FaLinkedinIn, FaYoutube, FaPaperPlane } from "react-icons/fa";
+import { FaTwitter, FaFacebook, FaLinkedinIn, FaYoutube, FaPaperPlane } from "react-icons/fa";
 import Image from "next/image";
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
           <p className="text-2xl font-medium">Siga o Alumia nas redes sociais:</p>
           <div className="flex space-x-8 mt-4">
             <FaTwitter className="text-black text-4xl cursor-pointer hover:opacity-80" />
-            <FaFacebookF className="text-black text-4xl cursor-pointer hover:opacity-80" />
+            <FaFacebook className="text-black text-4xl cursor-pointer hover:opacity-80" />
             <FaLinkedinIn className="text-black text-4xl cursor-pointer hover:opacity-80" />
             <FaYoutube className="text-black text-4xl cursor-pointer hover:opacity-80" />
           </div>

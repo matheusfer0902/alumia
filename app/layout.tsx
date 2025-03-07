@@ -30,8 +30,8 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${roboto.variable} font-sans antialiased bg-[#F5F5F5]`}>
         <Navbar />
-        <div className="container mx-auto">{children}</div>
-        <Footer/>
+        <div>{children}</div>
+        <Footer />
       </body>
     </html>
   );
