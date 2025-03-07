@@ -14,8 +14,8 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ isTrue }) => {
       <Image
         src={imageSrc}
         alt={altText}
-        width={500} // Aumentado em 1.5x (200 * 1.5 = 300)
-        height={300} // Aumentado em 1.5x (100 * 1.5 = 150)
+        width={500} 
+        height={300} 
       />
     </div>
   );
