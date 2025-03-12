@@ -2,6 +2,8 @@ import MainPost from "@/components/mainPost";
 import MoreChecks from "@/components/moreChecks/index"
 import InstitucionalSec from "@/components/institucionalSec/index"
 import FAQSection from "@/components/faq/index"
+import { client } from "../lib/apollo-client";
+import { gql } from "@apollo/client";
 
 const mockCheckagens = [
   {
@@ -36,9 +38,27 @@ const mockCheckagens = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const { data } = await client.query({
+    query: gql`
+      query allPosts {
+        posts {
+          nodes {
+            title
+            author {
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+    `,
+  })
+
   return (
     <div>
+      <h1>{data.posts.nodes[0].title}</h1>
       <MainPost/>
       <MoreChecks mockCheckagens={mockCheckagens} isChecks={false}/>
       <InstitucionalSec/>
