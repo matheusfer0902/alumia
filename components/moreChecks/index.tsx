@@ -17,7 +17,7 @@ interface MoreChecksProps {
 export default function MoreChecks({ data, isChecks }: MoreChecksProps) {
   const sortedPosts = [...data]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) 
-    .slice(0, 5); 
+    .slice(0, isChecks ? 10 : 5); 
 
   return (
     <section className="w-full py-8 mb-12">

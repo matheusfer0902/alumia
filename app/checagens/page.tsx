@@ -1,105 +1,34 @@
 import Editorias from "@/components/editorias/index"
 import Image from "next/image";
 import MoreChecks from "@/components/moreChecks";
-
-const mockCheckagens = [
-  {
-    id: 1,
-    tag: "Política",
-    title: "Cícero Lucena diz que vai fazer um governo ecologicamente competente",
-    image: "/Checagem1.svg",
-  },
-  {
-    id: 2,
-    tag: "Zap Notícias",
-    title: "Y2K 25 anos depois: disseminação de informações de pânico",
-    image: "/Checagem2.svg",
-  },
-  {
-    id: 3,
-    tag: "Meio Ambiente",
-    title: "João Azevedo criará ponte que liga a ponte das três ruas com a ponte do altiplano",
-    image: "/Checagem3.svg",
-  },
-  {
-    id: 4,
-    tag: "Meio Ambiente",
-    title: "Mais uma checagem sobre um prédio da UFPB",
-    image: "/Checagem4.svg",
-  },
-  {
-    id: 5,
-    tag: "Saúde",
-    title: "Fatos exagerados sobre a capacidade de inventar títulos",
-    image: "/Checagem5.svg",
-  },
-  {
-    id: 6,
-    tag: "Meio Ambiente",
-    title: "Notícia diz que falésia do Cabo Branco vai durar para todo o sempre",
-    image: "/Checagem6.svg",
-  },
-  {
-    id: 7,
-    tag: "Meio Ambiente",
-    title: "Bar do Cuscuz diz que esgoto jogado em praia está dentro das 4 linhas da constituição pessoense",
-    image: "/Checagem7.svg",
-  },
-  {
-    id: 8,
-    tag: "Política",
-    title: "Marcelo Queiroga fala sobre nota Ideb",
-    image: "/Checagem8.svg",
-  },
-  {
-    id: 9,
-    tag: "Política",
-    title: "Queiroga finalmente acerta: programa Previe Brasil",
-    image: "/Checagem9.svg",
-  },
-  {
-    id: 10,
-    tag: "Zap Notícias",
-    title: "Lorem Ipsum Doloros est: Checagem de notícias inventadas para site.",
-    image: "/Checagem10.svg",
-  },
-];
-
-/*
-Vivamus tincidunt velit ut erat dignissim efficitur. Cras porttitor justo at velit tincidunt, ac
-        molestie arcu sodales. Sed vitae magna eget justo blandit facilisis. Etiam dictum elit eget
-        lacus fringilla, sed varius mi pulvinar. Nunc sit amet mi ut purus elementum fermentum.
-        Vivamus varius magna et elit porta varius. Mauris id augue ac ante varius ultrices.
-        Vivamus tincidunt velit ut erat dignissim efficitur. Cras porttitor justo at velit tincidunt, ac
-        molestie arcu sodales. Sed vitae magna eget justo blandit facilisis. Etiam dictum elit eget
-        lacus fringilla, sed varius mi pulvinar. Nunc sit amet mi ut purus elementum fermentum.
-        Vivamus varius magna et elit porta varius. Mauris id augue ac ante varius ultrices.
-        Vivamus tincidunt velit ut erat dignissim efficitur. Cras porttitor justo at velit tincidunt, ac
-        molestie arcu sodales. Sed vitae magna eget justo blandit facilisis. Etiam dictum elit eget
-        lacus fringilla, sed varius mi pulvinar. Nunc sit amet mi ut purus elementum fermentum.
-        Vivamus varius magna et elit porta varius. Mauris id augue ac ante varius ultrices.
-        Vivamus tincidunt velit ut erat dignissim efficitur. Cras porttitor justo at velit tincidunt, ac
-        molestie arcu sodales. Sed vitae magna eget justo blandit facilisis. Etiam dictum elit eget
-        lacus fringilla, sed varius mi pulvinar. Nunc sit amet mi ut purus elementum fermentum.
-        Vivamus varius magna et elit porta varius. Mauris id augue ac ante varius ultrices.
-*/
+import useHandle from "../home/useHandle";
 
 
 export default function Check() {
+  const {
+    postsData
+  } = useHandle();
+
+  const latestPost = [...postsData]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
+
   return (
     <div>
       <div className="container mx-auto">
         <Editorias/>
         <div className="mt-16 cursor-pointer container mx-auto">
             <Image
-                src="/MainPost.svg"
-                alt="Noticia principal"
-                width={1240} 
-                height={350} 
-                objectFit="contain"
+              //src={latestPost.sourceUrl}
+              src={"/MainPost.svg"}
+              alt={latestPost.title}
+              layout="responsive"
+              width={1240} 
+              height={350} 
+              objectFit="contain" 
+              priority 
             />
         </div>
-        <MoreChecks mockCheckagens={mockCheckagens} isChecks={true}/>
+        <MoreChecks data={postsData} isChecks={true}/>
       </div>
     </div>
   );
