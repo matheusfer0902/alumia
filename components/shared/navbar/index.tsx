@@ -22,12 +22,12 @@ const Navbar = () => {
         <div className="flex items-center space-x-8">
           <ul className="flex space-x-6">
             <li>
-              <Link href="/checkens" className="text-[#050505] hover:text-orange-600 transition-colors">
+              <Link href="/" className="text-[#050505] hover:text-orange-600 transition-colors">
                 Início
               </Link>
             </li>
             <li>
-              <Link href="/institucional" className="text-[#050505] hover:text-orange-600 transition-colors">
+              <Link href="/checagens" className="text-[#050505] hover:text-orange-600 transition-colors">
                 Checagens
               </Link>
             </li>
