@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div>
-      <MainPost />
+      <MainPost data={postsData}/>
       <MoreChecks data={postsData} isChecks={false} />
       <InstitucionalSec />
       <FAQSection />
