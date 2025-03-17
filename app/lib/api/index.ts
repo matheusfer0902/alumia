@@ -7,6 +7,7 @@ const { data } = await client.query({
         posts {
             nodes {
                 title
+                slug
                 featuredImage {
                     node {
                         id

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface PostData {
   title: string;
@@ -7,6 +8,7 @@ interface PostData {
   sourceUrl: string;
   content: string;
   date: string;
+  slug: string;
 }
 
 interface MoreChecksProps {
@@ -27,25 +29,27 @@ export default function MoreChecks({ data, isChecks }: MoreChecksProps) {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {sortedPosts.map((item, index) => (
-            <div key={index} className="overflow-hidden relative cursor-pointer mb-6">
-              <div className="relative">
-                <Image 
-                  src={item.sourceUrl} 
-                  alt={item.title} 
-                  width={300} 
-                  height={200} 
-                  className="w-full h-40 object-cover"
-                />
-              </div>
-              <span className="bg-[#FFC31A] text-[#050505] text-lg font-bold mt-4 mb-2">
-                {item.category}
-              </span>
-              <div className="mt-2">
-                <h3 className="text-lg font-medium cursor-pointer underline">
-                  {item.title}
-                </h3>
-              </div>
+            <Link href={item.slug} key={index}>
+                <div key={index} className="overflow-hidden relative cursor-pointer mb-6">
+                <div className="relative">
+                  <Image 
+                    src={item.sourceUrl} 
+                    alt={item.title} 
+                    width={300} 
+                    height={200} 
+                    className="w-full h-40 object-cover"
+                  />
+                </div>
+                <span className="bg-[#FFC31A] text-[#050505] text-lg font-bold mt-4 mb-2">
+                  {item.category}
+                </span>
+                <div className="mt-2">
+                  <h3 className="text-lg font-medium cursor-pointer underline">
+                    {item.title}
+                  </h3>
+                </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

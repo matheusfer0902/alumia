@@ -1,0 +1,34 @@
+import { notFound } from "next/navigation";
+import Article from "@/components/articleComp/index";
+import { getPostBySlug, Post } from "@/app/lib/getPost";
+
+interface Params {
+  params: { slug: string };
+}
+
+export async function generateMetadata({ params }: Params) {
+  const post: Post | null = await getPostBySlug(params.slug);
+  return {
+    title: post ? post.title : "Postagem não encontrada",
+    description: post ? post.content.substring(0, 150) : "Nenhum conteúdo disponível.",
+  };
+}
+
+export default async function ArticlePage({ params }: Params) {
+  const post = await getPostBySlug(params.slug);
+
+  if (!post) {
+    return notFound();
+  }
+
+  return (
+    <Article
+      title={post.title}
+      subtitle={`Categoria: ${post.categories.edges.map((cat: { node: { name: string } }) => cat.node.name).join(", ")}`}
+      datePublished={new Date(post.date).toLocaleDateString("pt-BR")}
+      dateUpdated={new Date(post.date).toLocaleDateString("pt-BR")}
+      author={post.author.node.name}
+      source="Fonte Desconhecida"
+    />
+  );
+}
