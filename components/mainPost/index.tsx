@@ -18,17 +18,17 @@ export default function MainPost({ data }: DataProps) {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
 
   return (
-    <div className="mt-14 cursor-pointer container mx-auto">
+    <div className="mt-14 cursor-pointer px-4 sm:px-6 md:px-0 container mx-auto">
       {latestPost && latestPost.sourceUrl && (
         <Image
-          //src={latestPost.sourceUrl}
           src={"/MainPost.svg"}
+          //src={latestPost.sourceUrl}
           alt={latestPost.title}
           layout="responsive"
-          width={1240} 
-          height={350} 
-          objectFit="contain" 
-          priority 
+          width={1240}
+          height={350}
+          objectFit="contain"
+          priority
         />
       )}
     </div>
