@@ -4,12 +4,6 @@ import Navbar from "@/components/shared/navbar/index";
 import Footer from "@/components/shared/footer";
 import "./globals.css";
 
-const robotoCondensed = Roboto_Condensed({
-  variable: "--font-roboto-condensed",
-  subsets: ["latin"],
-  weight: ["400", "700"], 
-});
-
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],

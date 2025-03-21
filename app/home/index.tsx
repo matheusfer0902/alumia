@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect, useState } from "react";
 import MainPost from "@/components/mainPost";
 import MoreChecks from "@/components/moreChecks/index";
 import InstitucionalSec from "@/components/institucionalSec/index";

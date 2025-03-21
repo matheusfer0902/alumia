@@ -1,7 +1,7 @@
 import data from "../lib/api";
 import { useMemo } from "react";
 
-export default function useHandle(slug?: string) {
+export default function useHandle() {
   const postsData = useMemo(() => {
     const posts = data?.posts?.nodes || [];
 
