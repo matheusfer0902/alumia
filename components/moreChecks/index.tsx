@@ -37,7 +37,7 @@ export default function MoreChecks({ data, isChecks }: MoreChecksProps) {
                     alt={item.title}
                     width={300}
                     height={200}
-                    className="w-full h-40 object-cover rounded-md"
+                    className="w-full h-40 object-cover"
                   />
                 </div>
                 <span className="bg-[#FFC31A] text-[#050505] text-base sm:text-lg font-bold mt-4 inline-block mb-2">

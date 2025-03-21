@@ -21,14 +21,16 @@ export default async function ArticlePage({ params }: Params) {
     return notFound();
   }
 
+  const categories = post.categories.edges.map((cat: { node: { name: string } }) => cat.node.name).join(", ");
+
   return (
     <Article
       title={post.title}
-      subtitle={`Categoria: ${post.categories.edges.map((cat: { node: { name: string } }) => cat.node.name).join(", ")}`}
+      subtitle={`Categoria: ${categories}`}
       datePublished={new Date(post.date).toLocaleDateString("pt-BR")}
       dateUpdated={new Date(post.date).toLocaleDateString("pt-BR")}
       author={post.author.node.name}
-      source="Fonte Desconhecida"
+      tags={categories} 
     />
   );
 }

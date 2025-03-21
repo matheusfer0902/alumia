@@ -31,21 +31,20 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6">
-            <li>
-              <Link href="/" className="text-[#050505] hover:text-orange-600 transition-colors">
-                Início
-              </Link>
-            </li>
-            <li>
-              <Link href="/checagens" className="text-[#050505] hover:text-orange-600 transition-colors">
-                Checagens
-              </Link>
-            </li>
-            <li>
-              <Link href="/sobre" className="text-[#050505] hover:text-orange-600 transition-colors">
-                Institucional
-              </Link>
-            </li>
+            {["Início", "Checagens", "Institucional"].map((item, index) => {
+              const href = item === "Início" ? "/" : `/${item.toLowerCase()}`;
+              return (
+                <li key={index} className="relative group">
+                  <Link
+                    href={href}
+                    className="text-[#050505] transition-colors"
+                  >
+                    {item}
+                    <span className="block h-[2px] w-0 group-hover:w-full bg-[#050505] transition-all duration-300 ease-out"></span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="relative flex items-center border border-[#050505]">
@@ -66,21 +65,19 @@ const Navbar = () => {
         `}
       >
         <ul className="flex flex-col space-y-2">
-          <li>
-            <Link href="/" className="text-[#050505] hover:text-orange-600 transition-colors block">
-              Início
-            </Link>
-          </li>
-          <li>
-            <Link href="/checagens" className="text-[#050505] hover:text-orange-600 transition-colors block">
-              Checagens
-            </Link>
-          </li>
-          <li>
-            <Link href="/sobre" className="text-[#050505] hover:text-orange-600 transition-colors block">
-              Institucional
-            </Link>
-          </li>
+          {["Início", "Checagens", "Institucional"].map((item, index) => {
+            const href = item === "Início" ? "/" : `/${item.toLowerCase()}`;
+            return (
+              <li key={index}>
+                <Link
+                  href={href}
+                  className="text-[#050505] hover:text-orange-600 transition-colors block"
+                >
+                  {item}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="relative flex items-center border border-[#050505] mt-4">
