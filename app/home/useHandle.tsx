@@ -1,7 +1,13 @@
+"use client";
+
 import data from "../lib/api";
 import { useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function useHandle() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query")?.toLowerCase() || "";
+
   const postsData = useMemo(() => {
     const posts = data?.posts?.nodes || [];
 
@@ -11,21 +17,21 @@ export default function useHandle() {
       date: string;
       slug: string;
       featuredImage?: {
-      node?: {
-        sourceUrl?: string;
-      };
+        node?: {
+          sourceUrl?: string;
+        };
       };
       author?: {
-      node?: {
-        name?: string;
-      };
+        node?: {
+          name?: string;
+        };
       };
       categories?: {
-      edges: {
-        node?: {
-        name?: string;
-        };
-      }[];
+        edges: {
+          node?: {
+            name?: string;
+          };
+        }[];
       };
     }
 
@@ -39,23 +45,32 @@ export default function useHandle() {
       slug: string;
     }
 
-    return posts.map((post: Post): ProcessedPost => {
+    const processedPosts = posts.map((post: Post): ProcessedPost => {
       const { title, content, date, slug: postSlug } = post;
       const { sourceUrl } = post?.featuredImage?.node || {};
       const { name: author } = post?.author?.node || {};
       const category = post?.categories?.edges[0]?.node?.name;
 
       return {
-      title,
-      content,
-      date,
-      sourceUrl,
-      category,
-      author,
-      slug: postSlug,
+        title,
+        content,
+        date,
+        sourceUrl,
+        category,
+        author,
+        slug: postSlug,
       };
     });
-  }, [data]);
+
+    if (query) {
+      return processedPosts.filter((post: ProcessedPost) =>
+        post.title.toLowerCase().includes(query) ||
+        post.content.toLowerCase().includes(query)
+      );
+    }
+
+    return processedPosts;
+  }, [data, query]);
 
   return { postsData };
 }

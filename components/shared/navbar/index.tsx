@@ -1,17 +1,35 @@
+// Navbar.tsx
 "use client";
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get("query") || "";
+  const [searchTerm, setSearchTerm] = useState(initialQuery);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      const url = new URLSearchParams();
+      if (searchTerm.trim() !== "") {
+        url.set("query", searchTerm.trim());
+      }
+      router.push(`${pathname}?${url.toString()}`, { scroll: false });
+    }, 400);
+
+    return () => clearTimeout(delayDebounce);
+  }, [searchTerm, pathname, router]);
 
   return (
     <nav className="w-full bg-[#FFC31A] font-roboto-condensed text-lg">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        
         <Link href="/">
           <Image
             src="/AlumiaLogo.svg"
@@ -51,6 +69,8 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Pesquise aqui..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="px-3 py-1 pr-8 text-[#050505] placeholder-[#050505] bg-transparent focus:outline-none"
             />
             <FaSearch className="absolute right-2 text-[#050505]" />
@@ -84,6 +104,8 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Pesquise aqui..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="px-3 py-1 pr-8 w-full text-[#050505] placeholder-[#050505] bg-transparent focus:outline-none"
           />
           <FaSearch className="absolute right-2 text-[#050505]" />

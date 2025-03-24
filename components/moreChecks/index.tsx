@@ -27,31 +27,38 @@ export default function MoreChecks({ data, isChecks }: MoreChecksProps) {
         <h2 className={`text-2xl sm:text-3xl lg:text-4xl mb-6 font-light ${isChecks ? '' : 'underline underline-offset-6'}`}>
           {isChecks ? 'Últimas Checagens' : 'Mais Checagens'}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
-          {sortedPosts.map((item, index) => (
-            <Link href={item.slug} key={index}>
-              <div className="overflow-hidden relative cursor-pointer mb-6">
-                <div className="relative">
-                  <Image
-                    src={item.sourceUrl}
-                    alt={item.title}
-                    width={300}
-                    height={200}
-                    className="w-full h-40 object-cover"
-                  />
+
+        {sortedPosts.length === 0 ? (
+          <p className="text-center text-gray-600 text-lg mt-10">
+            Nenhuma checagem encontrada para a sua busca.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
+            {sortedPosts.map((item, index) => (
+              <Link href={item.slug} key={index}>
+                <div className="overflow-hidden relative cursor-pointer mb-6">
+                  <div className="relative">
+                    <Image
+                      src={item.sourceUrl}
+                      alt={item.title}
+                      width={300}
+                      height={200}
+                      className="w-full h-40 object-cover"
+                    />
+                  </div>
+                  <span className="bg-[#FFC31A] text-[#050505] text-base sm:text-lg font-bold mt-4 inline-block mb-2">
+                    {item.category}
+                  </span>
+                  <div className="mt-2">
+                    <h3 className="text-base sm:text-lg font-medium cursor-pointer underline">
+                      {item.title}
+                    </h3>
+                  </div>
                 </div>
-                <span className="bg-[#FFC31A] text-[#050505] text-base sm:text-lg font-bold mt-4 inline-block mb-2">
-                  {item.category}
-                </span>
-                <div className="mt-2">
-                  <h3 className="text-base sm:text-lg font-medium cursor-pointer underline">
-                    {item.title}
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
