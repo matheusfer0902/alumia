@@ -6,6 +6,9 @@ import ImageComponent from "../infoDetails";
 import ChecagemColunm from "../checagensColumn";
 
 interface ArticleProps {
+  content: any;
+  featuredImageUrl: any;
+  slug: string;
   title: string;
   subtitle: string;
   datePublished: string;
@@ -15,6 +18,9 @@ interface ArticleProps {
 }
 
 export default function Article({
+  content,
+  featuredImageUrl,
+  slug,
   title,
   subtitle,
   datePublished,
@@ -49,15 +55,15 @@ export default function Article({
         {/* Coluna principal */}
         <div className="lg:w-2/3">
           <Image
-            src="/imagemConteudo.svg"
+            src={featuredImageUrl}
             alt="Notícia principal"
             width={620}
             height={175}
             objectFit="contain"
             className="w-full h-auto"
           />
-          <TextComponent />
-          <VerificationComponent />
+          <TextComponent content={content}/>
+          {/* <VerificationComponent />
           <ImageComponent isTrue={true} />
 
           <div className="mt-8">
@@ -68,7 +74,7 @@ export default function Article({
               <li><a href="#" className="bg-[#FFC31A] text-black inline-block">Juventude atualizada</a></li>
               <li><a href="#" className="bg-[#FFC31A] text-black inline-block">Alguma coisa de Salvador</a></li>
             </ul>
-          </div>
+          </div> */}
 
           <div className="mt-6">
             <h3 className="text-lg font-bold">Compartilhe!</h3>

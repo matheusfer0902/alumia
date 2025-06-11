@@ -2,17 +2,15 @@ import { gql } from "@apollo/client";
 import {client} from "@/app/lib/apollo-client";
 
 export interface Post {
-
-    title: string;
-  
-    content: string;
-  
-    date: string;
-  
-    author: { node: { name: string } };
-  
-    categories: { edges: { node: { name: string } }[] };
-  
+    title: string;  
+    slug: string;
+    featuredImage: { node: { id: string; sourceUrl: string; } | null; /* Pode ser null se não tiver imagem destacada */
+    } | null;
+    categories: { edges: { node: { id: string; name: string; slug: string; } }[] };
+    author: { node: { name: string } };  
+    date: string;  
+    modified: string;
+    content: string;  
   }
 
 export async function getPostBySlug(slug: string) {
@@ -44,12 +42,14 @@ export async function getPostBySlug(slug: string) {
               }
             }
             date
+            modified
             content
           }
         }
       }
     `,
     variables: { slug },
+    fetchPolicy: "no-cache",
   });
 
   return data.posts.nodes.length > 0 ? data.posts.nodes[0] : null;

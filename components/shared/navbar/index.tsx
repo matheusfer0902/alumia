@@ -7,13 +7,28 @@ import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
+const linksMap: Record<string, string> = {
+  "Início": "/",
+  "Checagens": "/checagens",
+  "Institucional": "/institucional",
+  "Robôs": "/robos"
+};
+
 const Navbar = () => {
+  
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [searchTerm, setSearchTerm] = useState("");
   const searchParams = useSearchParams();
-  const initialQuery = searchParams.get("query") || "";
-  const [searchTerm, setSearchTerm] = useState(initialQuery);
+  
+  useEffect(() => {
+    const initialQuery = searchParams.get("query") || "";
+    setSearchTerm(initialQuery);
+  }, [searchParams]);
+
   const router = useRouter();
   const pathname = usePathname();
+
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
@@ -49,8 +64,8 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6">
-            {["Início", "Checagens", "Institucional"].map((item, index) => {
-              const href = item === "Início" ? "/" : `/${item.toLowerCase()}`;
+            {Object.keys(linksMap).map((item, index) => {
+              const href =  linksMap[item];;
               return (
                 <li key={index} className="relative group">
                   <Link
@@ -85,8 +100,8 @@ const Navbar = () => {
         `}
       >
         <ul className="flex flex-col space-y-2">
-          {["Início", "Checagens", "Institucional"].map((item, index) => {
-            const href = item === "Início" ? "/" : `/${item.toLowerCase()}`;
+          {Object.keys(linksMap).map((item, index) => {
+            const href = linksMap[item];
             return (
               <li key={index}>
                 <Link

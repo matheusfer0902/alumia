@@ -1,8 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  //basepath: '/wordpress',
   images: {
-    domains: ['alumia.local'],
+    
+    domains: ['alumia.local', 'localhost', 'alumialab.com.br'],
   },
 };
 

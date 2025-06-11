@@ -1,3 +1,5 @@
+'use client';
+
 import Editorias from "@/components/editorias/index";
 import Image from "next/image";
 import MoreChecks from "@/components/moreChecks";

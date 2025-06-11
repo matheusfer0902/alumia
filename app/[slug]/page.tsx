@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Article from "@/components/articleComp/index";
-import { getPostBySlug, Post } from "@/app/lib/getPost";
+import { getPostBySlug, Post } from "@/app/lib/getPostBySlug";
 
 interface Params {
   params: { slug: string };
@@ -20,17 +20,20 @@ export default async function ArticlePage({ params }: Params) {
   if (!post) {
     return notFound();
   }
-
   const categories = post.categories.edges.map((cat: { node: { name: string } }) => cat.node.name).join(", ");
 
   return (
     <Article
+      content={post.content}
+      featuredImageUrl={post.featuredImage.node.sourceUrl}
+      slug={post.slug}
       title={post.title}
       subtitle={`Categoria: ${categories}`}
       datePublished={new Date(post.date).toLocaleDateString("pt-BR")}
-      dateUpdated={new Date(post.date).toLocaleDateString("pt-BR")}
+      dateUpdated={new Date(post.modified).toLocaleDateString("pt-BR")}
       author={post.author.node.name}
-      tags={categories} 
+      tags={categories}
+
     />
   );
 }
