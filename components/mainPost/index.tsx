@@ -24,10 +24,13 @@ export default function MainPost({ data }: DataProps) {
           src={"/MainPost.svg"}
           //src={latestPost.sourceUrl}
           alt={latestPost.title}
-          layout="responsive"
           width={1240}
           height={350}
-          objectFit="contain"
+          style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           priority
         />
       )}

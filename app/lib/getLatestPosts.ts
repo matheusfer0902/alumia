@@ -10,6 +10,15 @@ export interface Post {
       sourceUrl?: string;
     } | null;
   } | null; // Em alguns casos, a imagem pode ser null
+  categories?: {
+    edges?: {
+      node: {
+        id: string,
+        name: string,
+        slug: string
+      }
+    }[]
+  }
 }
 
 export async function getLatestPosts(limit: number): Promise<Post[]> {
@@ -24,6 +33,15 @@ export async function getLatestPosts(limit: number): Promise<Post[]> {
             featuredImage {
               node {
                 sourceUrl
+              }
+            }
+            categories {
+              edges {
+                node {
+                  id
+                  name
+                  slug
+                }
               }
             }
           }

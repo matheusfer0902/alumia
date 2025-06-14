@@ -34,7 +34,7 @@ export default function Article({
         <div className="container mx-auto px-4 sm:px-6 md:px-0">
           <div className="p-6">
             <div className="text-sm text-[#050505] flex flex-col sm:flex-row sm:items-center sm:space-x-8 space-y-2 sm:space-y-0">
-              <span className="bg-[#FFC31A] font-bold w-fit">{tags}</span>
+              <span className="alumia-span font-bold w-fit">{tags}</span>
               <div className="flex flex-col sm:flex-row sm:space-x-8 text-sm">
                 <span>Publicado em {datePublished}</span>
                 <span>Atualizado em {dateUpdated}</span>
@@ -53,14 +53,14 @@ export default function Article({
       {/* Conteúdo */}
       <div className="container mx-auto px-4 sm:px-6 md:px-0 p-6 flex flex-col lg:flex-row gap-8">
         {/* Coluna principal */}
-        <div className="lg:w-2/3">
+        <div className="lg:w-2/3 px-10">
           <Image
             src={featuredImageUrl}
             alt="Notícia principal"
-            width={620}
+            width={520}
             height={175}
-            objectFit="contain"
-            className="w-full h-auto"
+            style={{objectFit: "cover"}}
+            className="w-full aspect-video rounded overflow-hidden"
           />
           <TextComponent content={content}/>
           {/* <VerificationComponent />

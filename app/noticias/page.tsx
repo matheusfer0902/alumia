@@ -17,16 +17,19 @@ export default function Check() {
         <Editorias />
 
         <div className="mt-16 cursor-pointer">
-          <Image
+          {/* <Image
             //src={latestPost.sourceUrl}
             src={"/MainPost.svg"}
             alt={latestPost.title}
-            layout="responsive"
             width={1240}
             height={350}
-            objectFit="contain"
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
             priority
-          />
+          /> */}
         </div>
 
         <MoreChecks data={postsData} isChecks={true} />

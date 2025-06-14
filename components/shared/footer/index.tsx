@@ -20,7 +20,7 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Insira seu e-mail"
-              className="px-3 py-2 border border-black bg-transparent text-black placeholder-black text-lg focus:outline-none w-full sm:w-[300px]"
+              className="px-3 py-2 border border-black bg-transparent text-black placeholder-black text-lg focus:outline-none w-full sm:w-[300px] rounded"
             />
             <button className="bg-black text-white px-4 py-2 flex items-center justify-center hover:opacity-80 w-full sm:w-auto">
               <FaPaperPlane className="text-lg" />

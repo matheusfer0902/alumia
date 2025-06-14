@@ -9,7 +9,7 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 const linksMap: Record<string, string> = {
   "Início": "/",
-  "Checagens": "/checagens",
+  "Notícias": "/noticias",
   "Institucional": "/institucional",
   "Robôs": "/robos"
 };
@@ -51,7 +51,7 @@ const Navbar = () => {
             alt="Logo Alumia"
             width={200}
             height={48}
-            objectFit="contain"
+            style={{objectFit: "contain"}}
           />
         </Link>
 
@@ -67,20 +67,20 @@ const Navbar = () => {
             {Object.keys(linksMap).map((item, index) => {
               const href =  linksMap[item];;
               return (
-                <li key={index} className="relative group">
+                <li key={index} className="relative group font-bold">
                   <Link
                     href={href}
                     className="text-[#050505] transition-colors"
                   >
                     {item}
-                    <span className="block h-[2px] w-0 group-hover:w-full bg-[#050505] transition-all duration-300 ease-out"></span>
+                    <span className="underline-hover"></span>
                   </Link>
                 </li>
               );
             })}
           </ul>
 
-          <div className="relative flex items-center border border-[#050505]">
+          <div className="relative flex items-center border border-[#050505] rounded">
             <input
               type="text"
               placeholder="Pesquise aqui..."
@@ -99,7 +99,7 @@ const Navbar = () => {
           ${menuOpen ? 'scale-y-100 opacity-100 pb-4' : 'scale-y-0 opacity-0 h-0'}
         `}
       >
-        <ul className="flex flex-col space-y-2">
+        <ul className="flex flex-col space-y-2 font-bold">
           {Object.keys(linksMap).map((item, index) => {
             const href = linksMap[item];
             return (
@@ -115,7 +115,7 @@ const Navbar = () => {
           })}
         </ul>
 
-        <div className="relative flex items-center border border-[#050505] mt-4">
+        <div className="relative flex items-center border border-[#050505] mt-4 rounded">
           <input
             type="text"
             placeholder="Pesquise aqui..."

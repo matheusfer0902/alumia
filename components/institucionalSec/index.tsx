@@ -29,8 +29,8 @@ export default function InstitucionalSec() {
                 <Image 
                   src={item.image} 
                   alt={item.title} 
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{objectFit: "cover"}}
                   className="rounded-md"
                 />
               </div>

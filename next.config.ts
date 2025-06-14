@@ -2,9 +2,16 @@
 const nextConfig = {
   //basepath: '/wordpress',
   images: {
-    
-    domains: ['alumia.local', 'localhost', 'alumialab.com.br'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'alumialab.com.br',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+    // domains: ['alumia.local', 'localhost', 'alumialab.com.br'],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

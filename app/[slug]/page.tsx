@@ -1,21 +1,30 @@
 import { notFound } from "next/navigation";
 import Article from "@/components/articleComp/index";
 import { getPostBySlug, Post } from "@/app/lib/getPostBySlug";
+import { Metadata } from "next";
+
+type Props = {
+  params: {
+    slug: string
+  };
+};
 
 interface Params {
   params: { slug: string };
 }
 
-export async function generateMetadata({ params }: Params) {
-  const post: Post | null = await getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post: Post | null = await getPostBySlug(slug);
   return {
     title: post ? post.title : "Postagem não encontrada",
     description: post ? post.content.substring(0, 150) : "Nenhum conteúdo disponível.",
   };
 }
 
-export default async function ArticlePage({ params }: Params) {
-  const post = await getPostBySlug(params.slug);
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await  params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return notFound();
@@ -25,7 +34,7 @@ export default async function ArticlePage({ params }: Params) {
   return (
     <Article
       content={post.content}
-      featuredImageUrl={post.featuredImage.node.sourceUrl}
+      featuredImageUrl={post.featuredImage?.node?.sourceUrl ?? 'institucional2.svg'}
       slug={post.slug}
       title={post.title}
       subtitle={`Categoria: ${categories}`}

@@ -3,6 +3,8 @@
 import data from "../lib/api";
 import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
+import * as cheerio from 'cheerio';
+
 
 export default function useHandle() {
   const searchParams = useSearchParams();
@@ -12,6 +14,7 @@ export default function useHandle() {
     const posts = data?.posts?.nodes || [];
 
     interface Post {
+      excerpt: string;
       title: string;
       content: string;
       date: string;
@@ -36,6 +39,7 @@ export default function useHandle() {
     }
 
     interface ProcessedPost {
+      excerpt: string;
       title: string;
       content: string;
       date: string;
@@ -50,8 +54,11 @@ export default function useHandle() {
       const { sourceUrl } = post?.featuredImage?.node || {};
       const { name: author } = post?.author?.node || {};
       const category = post?.categories?.edges[0]?.node?.name;
+      const $ = cheerio.load(post.excerpt);
+      const excerpt = $('p').text();
 
       return {
+        excerpt,
         title,
         content,
         date,

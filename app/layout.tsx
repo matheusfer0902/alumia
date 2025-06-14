@@ -13,6 +13,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Alumia",
   description: "Seu site de notícias",
+  icons: {
+    icon: "/logoFooterAlumia.svg",
+  },
 };
 
 export default function RootLayout({
