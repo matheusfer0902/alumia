@@ -14,7 +14,7 @@ export default function Check() {
   return (
     <div>
       <div className="container mx-auto px-4 sm:px-6 md:px-0">
-        <Editorias />
+        {/* <Editorias /> */}
 
         <div className="mt-16 cursor-pointer">
           {/* <Image

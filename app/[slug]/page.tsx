@@ -35,6 +35,8 @@ export default async function ArticlePage({ params }: Props) {
     <Article
       content={post.content}
       featuredImageUrl={post.featuredImage?.node?.sourceUrl ?? 'institucional2.svg'}
+      featuredImageCaption = {post.featuredImage?.node?.caption}
+      altText={post.featuredImage?.node?.altText}
       slug={post.slug}
       title={post.title}
       subtitle={`Categoria: ${categories}`}

@@ -10,15 +10,24 @@ const TextComponent = ({ content }: any) => {
       if (domNode.type == 'tag') {
         const el = domNode as Element;
         
-        if (el.name == 'img') {
-          return(
-            <img
-              src={el.attribs.src}
-              alt={el.attribs.alt || ''}
-              className="rounded w-[100%] object-cover aspect-video block mx-auto"
-            />
-          )
-        }
+        // if (el.name == 'img') {
+        //   return(
+        //     <img
+        //       src={el.attribs.src}
+        //       alt={el.attribs.alt || ''}
+        //       className="rounded w-[100%] object-cover aspect-video block mx-auto"
+        //     />
+        //   )
+        // }
+
+        //  if (el.name === 'p') {
+        //   return (
+        //     <p>
+        //       {domToReact(el.children as any, options)}
+        //     </p>
+        //   );
+        // }
+        
 
       }
 
@@ -35,7 +44,7 @@ const TextComponent = ({ content }: any) => {
   // );
 
   return (
-    <div className="container mx-auto py-3 space-y-10">
+    <div className="container mx-auto py-3 space-y-5 text-xl">
       {parse(content, options)}
     </div>
   );

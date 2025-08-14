@@ -8,6 +8,8 @@ import ChecagemColunm from "../checagensColumn";
 interface ArticleProps {
   content: any;
   featuredImageUrl: any;
+  featuredImageCaption: string;
+  altText: string;
   slug: string;
   title: string;
   subtitle: string;
@@ -20,6 +22,8 @@ interface ArticleProps {
 export default function Article({
   content,
   featuredImageUrl,
+  altText,
+  featuredImageCaption,
   slug,
   title,
   subtitle,
@@ -42,9 +46,9 @@ export default function Article({
             </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-4">{title}</h1>
-            <p className="text-base sm:text-lg text-gray-700 mt-2">{subtitle}</p>
-            <p className="text-sm mt-1">
-              Por <a href="#" className="underline">{author}</a> da, <a href="#" className="underline">{author}</a>
+            {/* <p className="text-base sm:text-lg text-gray-700 mt-2">{subtitle}</p> */}
+            <p className="text-sm mt-4 ">
+              <span className="font-bold">{altText}</span>
             </p>
           </div>
         </div>
@@ -53,15 +57,18 @@ export default function Article({
       {/* Conteúdo */}
       <div className="container mx-auto px-4 sm:px-6 md:px-0 p-6 flex flex-col lg:flex-row gap-8">
         {/* Coluna principal */}
-        <div className="lg:w-2/3 px-10">
+        <div className="lg:w-2/3 px-10 max-w-3xl mx-auto">
           <Image
             src={featuredImageUrl}
             alt="Notícia principal"
             width={520}
             height={175}
             style={{objectFit: "cover"}}
-            className="w-full aspect-video rounded overflow-hidden"
+            className="w-full rounded overflow-hidden"
           />
+          {featuredImageCaption && (
+            <p className="text-sm text-gray-500 italic mt-2 text-center" dangerouslySetInnerHTML={{ __html: featuredImageCaption }} />
+          )}
           <TextComponent content={content}/>
           {/* <VerificationComponent />
           <ImageComponent isTrue={true} />
@@ -76,14 +83,19 @@ export default function Article({
             </ul>
           </div> */}
 
-          <div className="mt-6">
-            <h3 className="text-lg font-bold">Compartilhe!</h3>
-            <div className="flex space-x-4 mt-2">
-              <FaWhatsapp className="text-black text-3xl sm:text-4xl cursor-pointer hover:opacity-80" />
-              <FaTwitter className="text-black text-3xl sm:text-4xl cursor-pointer hover:opacity-80" />
-              <FaFacebook className="text-black text-3xl sm:text-4xl cursor-pointer hover:opacity-80" />
-            </div>
-          </div>
+              <div className="mt-6">
+                <h3 className="text-lg font-bold">Compartilhe!</h3>
+                <div className="flex space-x-4 mt-2">
+                  <a
+                    href={`https://api.whatsapp.com/send?text=${encodeURIComponent(title)}%0A${encodeURIComponent(`https://alumialab.com.br/${slug}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                  <FaWhatsapp className="text-black text-3xl sm:text-4xl cursor-pointer hover:opacity-80" />
+                  </a>
+                  <FaTwitter className="text-black text-3xl sm:text-4xl cursor-pointer hover:opacity-80" />
+                  <FaFacebook className="text-black text-3xl sm:text-4xl cursor-pointer hover:opacity-80" />
+                </div>
+              </div>
         </div>
 
         <div className="lg:w-1/3">

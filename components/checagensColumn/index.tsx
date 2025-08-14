@@ -10,7 +10,7 @@ const ChecagensColunm = async () => {
 
   return (
     <div className="w-full p-6">
-      <h2 className="text-2xl font-bold mb-6">Últimas Notícias</h2>
+      <h2 className="text-2xl font-bold mb-6">Últimas Checagens</h2>
       <div className="space-y-6">
         {latestPosts.map((item) => (
           <Link key={item.id} href={`/${item.slug}`} className="flex items-center gap-4 cursor-pointer">
@@ -24,8 +24,7 @@ const ChecagensColunm = async () => {
               <Image
                 src={item.featuredImage?.node?.sourceUrl ?? '/institucional2.svg'}
                 alt={item.title}
-                width={150}
-                height={100}
+                fill
                 className="w-full h-full object-cover rounded"
                 style={{ objectFit: "cover" }}
               />
@@ -36,9 +35,9 @@ const ChecagensColunm = async () => {
       </div>
 
       <div className="mt-6 text-right">
-        <Link href={`/noticias`}>
+        <Link href={`/checagens`}>
         <button className="alumia-span font-bold">
-          Mais Notícias
+          Mais Checagens
         </button>
         </Link>
       </div>

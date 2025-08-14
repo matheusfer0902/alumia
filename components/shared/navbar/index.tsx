@@ -9,7 +9,7 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 const linksMap: Record<string, string> = {
   "Início": "/",
-  "Notícias": "/noticias",
+  "Checagens": "/checagens",
   "Institucional": "/institucional",
   "Robôs": "/robos"
 };

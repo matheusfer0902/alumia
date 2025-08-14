@@ -37,10 +37,10 @@ export default function MoreChecks({ data, isChecks }: MoreChecksProps) {
       <div className="container mx-auto px-4 sm:px-6 md:px-0">
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl mb-6 font-bold ${isChecks ? '' : 'hover-dark'}`}>
             {isChecks ? (
-              <span>Notícias</span>
+              <span>Checagens</span>
             ) : (
-            <Link href="/noticias">
-              <span>Mais Notícias</span>
+            <Link href="/checagens">
+              <span>Mais Checagens</span>
             </Link>
             )}
           </h2>

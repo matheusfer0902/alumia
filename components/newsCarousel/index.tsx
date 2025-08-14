@@ -52,7 +52,7 @@ export default function NewsCarousel({ data }: DataProps) {
       modules={[Navigation, Pagination, Autoplay, FreeMode]}
       navigation={!isMobile}
       pagination={!isMobile ? { clickable: true } : false}
-      autoplay={{ delay: 5000, disableOnInteraction: true }}
+      autoplay={{ delay: 15000, disableOnInteraction: true }}
       speed={700}
       loop
       slidesPerView={isMobile ? 1.05 : 1}
@@ -84,7 +84,7 @@ export default function NewsCarousel({ data }: DataProps) {
               </h2>
 
               <p
-                className={`${robotoCondensed.className} max-h-0 md:max-h-[300px] md:line-clamp-7 text-[25px] leading-[1.2] text-[#333] font-bold`}
+                className={`${robotoCondensed.className} max-h-0 md:max-h-[300px] md:line-clamp-7 text-[25px] text-left leading-[1.2] text-[#333] font-bold`}
                 >{item.excerpt}</p>
             </div>
             {/* Imagem à direita ocupando metade */}

@@ -3,7 +3,7 @@ export default function Head() {
   return (
     <>
       <title>Alumia</title>
-      <meta name="description" content="Seu site de notícias" />
+      <meta name="description" content="Seu site de checagens" />
       <link rel="icon" href="/logoFooterAlumia.svg" type="image/svg+xml" />
     </>
   );

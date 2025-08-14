@@ -4,7 +4,7 @@ import {client} from "@/app/lib/apollo-client";
 export interface Post {
     title: string;  
     slug: string;
-    featuredImage: { node: { id: string; sourceUrl: string; } | null; /* Pode ser null se não tiver imagem destacada */
+    featuredImage: { node: { id: string; sourceUrl: string; caption: string; altText: string } | null; /* Pode ser null se não tiver imagem destacada */
     } | null;
     categories: { edges: { node: { id: string; name: string; slug: string; } }[] };
     author: { node: { name: string } };  
@@ -25,6 +25,8 @@ export async function getPostBySlug(slug: string) {
               node {
                 id
                 sourceUrl
+                caption
+                altText
               }
             }
             categories {

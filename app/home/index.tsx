@@ -20,7 +20,7 @@ export default function Home() {
       {/*<MainPost data={postsData}/>*/}
       <MoreChecks data={postsData.slice(carouselPostCount)} isChecks={false} />
       <InstitucionalSec />
-      <FAQSection />
+      {/* <FAQSection /> */}
     </div>
   );
 }
