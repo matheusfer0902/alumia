@@ -4,7 +4,7 @@ import { gql } from "@apollo/client";
 const { data } = await client.query({
     query: gql`
       query allPosts {
-        posts (where: {orderby: {field: DATE, order: DESC}}){
+        posts (first: 1000, where: {orderby: {field: DATE, order: DESC}}){
             nodes {
                 excerpt  
                 id
