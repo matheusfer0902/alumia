@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import ChecagensColunm from "@/components/checagensColumn";
 
 export default function MissaoPage() {

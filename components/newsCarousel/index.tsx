@@ -66,7 +66,7 @@ export default function NewsCarousel({ data }: DataProps) {
           <Link href={`/${item.slug}`} passHref className="block h-full w-full">
           <div className="flex flex-col-reverse md:flex-row h-full items-center md:items-start box-border bg-[url('/bgConteudo.svg')] bg-cover bg-no-repeat bg-fixed">
             {/* Texto à esquerda ocupando metade */}
-            <div className="flex-1 flex flex-col md:justify-start h-full pt-0 md:pt-6 text-justify px-4 md:pl-12 md:pr-12 max-h-[140px] md:max-h-none">
+            <div className="flex-1 flex flex-col md:justify-start h-full pt-0 md:pt-6 text-left px-4 md:pl-12 md:pr-12 max-h-[140px] md:max-h-none">
 
             <div className={`${robotoCondensed.className} text-[1em] flex mt-2 mb-0 md:mb-2 text-lg md:text-xl font-bold text-black`}>
               <span className="alumia-span font-bold">{item.category ?? ''}</span>

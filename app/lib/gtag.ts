@@ -26,6 +26,6 @@ export const event = ({ action, category, label, value }: GtagEvent) => {
 // Adiciona definição global para evitar erro de tipo no TS
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void;
   }
 }

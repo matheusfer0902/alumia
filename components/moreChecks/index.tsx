@@ -16,16 +16,16 @@ interface MoreChecksProps {
   isChecks: boolean;
 }
 
-function groupByCategory(posts: PostData[]) {
-  return posts.reduce((acc: Record<string, PostData[]>, post) => {
-    const category = post.category || 'Outros';
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(post);
-    return acc;
-  }, {});
-}
+// function groupByCategory(posts: PostData[]) {
+//   return posts.reduce((acc: Record<string, PostData[]>, post) => {
+//     const category = post.category || 'Outros';
+//     if (!acc[category]) {
+//       acc[category] = [];
+//     }
+//     acc[category].push(post);
+//     return acc;
+//   }, {});
+// }
 
 export default function MoreChecks({ data, isChecks }: MoreChecksProps) {
   const sortedPosts = [...data]

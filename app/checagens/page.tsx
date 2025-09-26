@@ -1,15 +1,15 @@
 'use client';
 
-import Editorias from "@/components/editorias/index";
-import Image from "next/image";
+// import Editorias from "@/components/editorias/index";
+// import Image from "next/image";
 import MoreChecks from "@/components/moreChecks";
 import useHandle from "../home/useHandle";
 
 export default function Check() {
   const { postsData } = useHandle();
 
-  const latestPost = [...postsData]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
+  // const latestPost = [...postsData]
+  //   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
 
   return (
     <div>

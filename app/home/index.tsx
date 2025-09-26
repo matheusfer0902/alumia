@@ -1,10 +1,10 @@
 "use client"
 
 import NewsCarousel from "@/components/newsCarousel";
-import MainPost from "@/components/mainPost";
+// import MainPost from "@/components/mainPost";
 import MoreChecks from "@/components/moreChecks/index";
 import InstitucionalSec from "@/components/institucionalSec/index";
-import FAQSection from "@/components/faq/index";
+// import FAQSection from "@/components/faq/index";
 import useHandle from "./useHandle";
 
 const carouselPostCount = 5;

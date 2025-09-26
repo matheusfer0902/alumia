@@ -1,5 +1,6 @@
+import { Suspense } from 'react';
 import type { Metadata } from "next";
-import { Roboto_Condensed, Roboto } from "next/font/google"; 
+import { Roboto } from "next/font/google"; 
 import Navbar from "@/components/shared/navbar/index"; 
 import Footer from "@/components/shared/footer";
 import "./globals.css";
@@ -47,8 +48,10 @@ export default function RootLayout({
             `,
           }}
         />
-
-        <Navbar />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Navbar /> {/* client component isolado */}
+        </Suspense>
+        {/* <Navbar /> */}
         <div>{children}</div>
         <Footer />
       </body>

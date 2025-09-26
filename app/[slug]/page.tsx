@@ -3,17 +3,17 @@ import Article from "@/components/articleComp/index";
 import { getPostBySlug, Post } from "@/app/lib/getPostBySlug";
 import { Metadata } from "next";
 
-type Props = {
-  params: {
-    slug: string
-  };
-};
 
-interface Params {
-  params: { slug: string };
+interface PageParams {
+  slug: string ;
 }
+// type Props = {
+//   params: PageParams;
+// };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+type Params = Promise<PageParams>
+
+export async function generateMetadata({ params }: {params:Params}): Promise<Metadata> {
   const { slug } = await params;
   const post: Post | null = await getPostBySlug(slug);
   return {
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ArticlePage({ params }: Props) {
-  const { slug } = await  params;
+export default async function ArticlePage({ params }: {params:Params}) {
+  const { slug } = await params;
   const post = await getPostBySlug(slug);
 
   if (!post) {

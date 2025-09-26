@@ -1,14 +1,18 @@
 'use client';
-import parse, { domToReact, Element } from 'html-react-parser';
+import parse, { DOMNode } from 'html-react-parser';
 
-const TextComponent = ({ content }: any) => {
+interface TextComponentProps {
+  content: string;
+}
+
+const TextComponent = ({ content }: TextComponentProps) => {
 
   const options = {
 
-    replace(domNode: any) {
+    replace(domNode: DOMNode) {
 
       if (domNode.type == 'tag') {
-        const el = domNode as Element;
+        // const el = domNode as Element;
         
         // if (el.name == 'img') {
         //   return(

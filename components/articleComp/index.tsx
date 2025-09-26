@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { FaTwitter, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import TextComponent from "../textArticle";
-import VerificationComponent from "../conclusionArticle";
-import ImageComponent from "../infoDetails";
+// import VerificationComponent from "../conclusionArticle";
+// import ImageComponent from "../infoDetails";
 import ChecagemColunm from "../checagensColumn";
 
 interface ArticleProps {
-  content: any;
-  featuredImageUrl: any;
+  content: string;
+  featuredImageUrl: string;
   featuredImageCaption: string;
   altText: string;
   slug: string;
@@ -26,10 +26,10 @@ export default function Article({
   featuredImageCaption,
   slug,
   title,
-  subtitle,
+  // subtitle,
   datePublished,
   dateUpdated,
-  author,
+  // author,
   tags,
 }: ArticleProps) {
   return (
