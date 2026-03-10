@@ -5,3 +5,23 @@
 body {
   font-family: var(--font-roboto-condensed), sans-serif;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: black !important;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-dark {
+  @apply transition-colors text-gray-700 hover:text-black;
+}
+
+.alumia-span {
+  @apply bg-[#FFC31A] text-[#050505] rounded px-1;
+}
+
+.underline-hover{
+  @apply block h-[2px] w-0 group-hover:w-full bg-[#050505] transition-all duration-300 ease-out;
+}
+

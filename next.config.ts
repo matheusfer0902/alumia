@@ -1,9 +1,17 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  //basepath: '/wordpress',
   images: {
-    domains: ['alumia.local'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'alumialab.com.br',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+    // domains: ['alumia.local', 'localhost', 'alumialab.com.br'],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

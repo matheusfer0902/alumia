@@ -3,11 +3,13 @@ const faqItems = [
     id: 1,
     question: "O que é o Alumia Laboratório?",
     answer:
-      "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Informação verificada: falsa. Quisque lobortis urna sed orci vehicula, vel gravida lorem tempus.",
+      `Alumia é um laboratório dedicado ao combate à desinformação. \
+      É formado por pesquisadores, jornalistas, docentes e discentes da Universidade Federal da Paraíba (UFPB) \
+      das áreas de jornalismo, mídias digitais, radialismo, relações públicas e informática.`,
   },
   {
     id: 2,
-    question: "Como posso um fato ou notícia para vocês checarem?",
+    question: "Como passo uma informação para vocês checarem?",
     answer:
       "Habitant morbi tristique senectus et netus et malesuada. Informação verificada: falsa. Quisque lobortis urna sed orci vehicula, vel gravida lorem tempus. <span class='bg-[#FFC31A] font-bold'>Miguezinho</span> para o texto parecer diferente.",
   },

@@ -1,60 +1,45 @@
 import React from 'react';
 import Image from 'next/image';
+import { getLatestPosts } from '@/app/lib/getLatestPosts';
+import Link from 'next/link';
 
-interface Checkagem {
-  id: number;
-  title: string;
-  image: string;
-}
+const postsCount = 5;
 
-const mockCheckagens: Checkagem[] = [
-  {
-    id: 1,
-    title: "Cicero Lucena diz que vai fazer um governo ecologicamente competente",
-    image: "/Checagem1.svg",
-  },
-  {
-    id: 2,
-    title: "YZX 25 anos depois: disseminação de informações de pânico",
-    image: "/Checagem2.svg",
-  },
-  {
-    id: 3,
-    title: "João Azevedo citará ponte que liga a ponte das três ruas com o norte do alinhado",
-    image: "/Checagem3.svg",
-  },
-];
+const ChecagensColunm = async () => {
+  const latestPosts = await getLatestPosts(postsCount)
 
-const ChecagensColunm = () => {
   return (
     <div className="w-full p-6">
-      <h2 className="text-2xl font-light mb-6">Últimas Checagens</h2>
+      <h2 className="text-2xl font-bold mb-6">Últimas Checagens</h2>
       <div className="space-y-6">
-        {mockCheckagens.map((item) => (
-          <div key={item.id} className="flex items-center gap-4 cursor-pointer">
+        {latestPosts.map((item) => (
+          <Link key={item.id} href={`/${item.slug}`} className="flex items-center gap-4 cursor-pointer">
+          
             <div className="flex-1">
               <h3 className="text-lg font-medium underline underline-offset-6">
                 {item.title}
               </h3>
             </div>
-
-            <div className="w-33 h-24 relative flex-shrink-0">
+            <div className="w-[150px] h-[100px] relative flex-shrink-0 rounded">
               <Image
-                src={item.image}
+                src={item.featuredImage?.node?.sourceUrl ?? '/institucional2.svg'}
                 alt={item.title}
-                width={110}
-                height={96}
-                className="w-full h-full object-cover"
+                fill
+                className="w-full h-full object-cover rounded"
+                style={{ objectFit: "cover" }}
               />
             </div>
-          </div>
+          
+          </Link>
         ))}
       </div>
 
       <div className="mt-6 text-right">
-        <button className="bg-[#FFC31A] text-[#050505] font-bold">
+        <Link href={`/checagens`}>
+        <button className="alumia-span font-bold">
           Mais Checagens
         </button>
+        </Link>
       </div>
     </div>
   );
